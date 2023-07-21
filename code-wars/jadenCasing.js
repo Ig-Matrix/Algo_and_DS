@@ -19,8 +19,19 @@ function jadenCasing(str) {
     return jadenCasedWords;
 }
 
-console.log(jadenCasing("How can mirrors be real if our eyes aren't real"));
 
 String.prototype.toJadenCase = function () {
     return jadenCasing(this);
 };
+
+
+//Alternatively
+function toJadenCasing(str) {
+    const words = str.split(' ')
+    for (let i = 0; i < words.length; i++) {
+        words[i] = words[i][0].toUpperCase() + words[i].slice(1).toLowerCase()
+    }
+    return words.join(' ')
+}
+
+console.log(toJadenCasing("How can mirrors be real if our eyes aren't real"));
