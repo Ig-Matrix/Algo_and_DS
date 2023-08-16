@@ -24,4 +24,21 @@ Returns
 string: the time in 24 hour format
  */
 
+let sampleInput = '07:05:45PM'
+let arr = sampleInput.split('')
+console.log(arr);
+// let sampledate= new Date(sampleInput)
+arr.splice(2,2, '/')
+// arr.splice(5,5, '/')
+let sayd = arr.join('')
+console.log(sayd);
+
+
+
+
+//Assignment
+//-Constructors(why,how,when)
+//-Inheritance(super,extends)
+//-methods(getters,setters,static)
+//-private or public
 

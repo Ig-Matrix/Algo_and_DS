@@ -21,15 +21,17 @@ int: the number of candles that are tallest
 
 function birthdayCakeCandles(candles) {
     // Write your code here
-    let tallestCandle = [0];
-    let tallestCandleArrray = [];
+    let tallestCandle = candles[0];
+    let count = 0;
     for (let i = 0; i < candles.length; i++) {
-        if (candles[i] >= tallestCandle) {
+        if (candles[i] > tallestCandle) {
             tallestCandle = candles[i];
-            tallestCandleArrray.push(tallestCandle);
+        }
+        if (candles[i] === tallestCandle) {
+            count++;
         }
     }
 
-    return tallestCandleArrray.length;
+    return count;
 }
-console.log(birthdayCakeCandles([4, 2, 1, 4, 2]));
+console.log(birthdayCakeCandles([4, 2, 1, 4,2,2, 2]));
