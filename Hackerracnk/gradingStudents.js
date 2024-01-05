@@ -30,8 +30,7 @@ Returns
 
  */
 
-
- /**--------------SOLUTION-----------------*/
+/**--------------SOLUTION ONE-----------------*/
 function gradingStudents(grades) {
    let approximatedGrades = [];
    for (let i = 0; i < grades.length; i++) {
@@ -39,10 +38,10 @@ function gradingStudents(grades) {
          approximatedGrades.push(grades[i]);
       } else {
          let nextMultipleOf5 = Math.ceil(grades[i] / 5) * 5;
-         if(nextMultipleOf5 -grades[i] < 3) {
-            approximatedGrades.push(nextMultipleOf5)
+         if (nextMultipleOf5 - grades[i] < 3) {
+            approximatedGrades.push(nextMultipleOf5);
          } else {
-            approximatedGrades.push(grades[i])
+            approximatedGrades.push(grades[i]);
          }
       }
    }
@@ -50,4 +49,35 @@ function gradingStudents(grades) {
 }
 
 let ans = gradingStudents([73, 67, 38, 33]);
-console.log(ans);
+// console.log(ans);
+
+/**--------------SOLUTION TWO-----------------*/
+const gradingStudent = (grades) => {
+   let gradedArr = [];
+   let multipleOf5Arr = [];
+   let highestGrade = Math.max(...grades);
+   for (let i = 0; i < highestGrade * 2; i++) {
+      if (i % 5 === 0) multipleOf5Arr.push(i);
+   }
+   let start = 0;
+   while (start < grades.length) {
+      let count = 0;
+      while (multipleOf5Arr[count] < grades[start]) {
+         count++;
+      }
+      if (grades[start] < 38) {
+         gradedArr[start] = grades[start];
+      } else {
+         if (multipleOf5Arr[count] - grades[start] < 3) {
+            gradedArr[start] = multipleOf5Arr[count];
+         } else {
+            gradedArr[start] = grades[start];
+         }
+      }
+      start++;
+   }
+   return gradedArr;
+};
+
+let soln = gradingStudent([73, 67, 38, 33]);
+console.log(soln);
