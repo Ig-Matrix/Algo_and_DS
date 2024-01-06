@@ -29,6 +29,25 @@ function kangaroo(x1, v1, x2, v2) {
 let ans = kangaroo(0,2,5,3 );
 console.log(ans);
 
+/**------------SOLUTION TWO-------------- */
+
+const Kangaroo = (x1, v1, x2, v2) => {
+    let i = 0;
+    while (i < 10000) {
+       if (x1 === x2) {
+          return "YES";
+       }
+ 
+       x1 = x1 + v1;
+       x2 = x2 + v2;
+ 
+       i++;
+    }
+    return "NO";
+ };
+ 
+ let soln = Kangaroo(21, 6, 47, 3);
+ console.log(soln);
 
 
 // TEST CASES
